@@ -9,11 +9,8 @@ def getPrice():
 
     #these two html classes were extracted after inspecting metroid dread shoping page on Eneba
     title = soup.find(class_="pO0YjY").get_text().strip()
-    price = soup.find(class_="L5ErLT").get_text().strip()[0:2] # Coge los dos primeras posiciones del string como si fuese un array, sin contar la ultima. 0 y 1
-
-    print('-----------------------------------------------------')
-    print(title)
-    print(price+"\n")
+    price = soup.find(class_="L5ErLT").get_text().strip()[0:2] 
+	# [...]
     return price
 ```
 

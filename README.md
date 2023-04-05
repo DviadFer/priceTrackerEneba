@@ -1,21 +1,21 @@
 ## PRICE TRACKER BOT
 
-> :rotating_light: Eneba html structure has changed since this project was released. Refer to [Issues](https://github.com/DviadFer/priceTrackerEneba/issues) to further info on this topic.
+> :rotating_light: The Eneba HTML structure has changed since this project was released. Refer to [Issues](https://github.com/DviadFer/priceTrackerEneba/issues) to further info on this topic.
 
-Price tracker in Python custom made for Eneba.com. It was build to obtain Metroid Dread at a low prize. You need to customize `URL` variable and `getPrice()` function in order for this bot to work property in other websites.
+A custom Python price tracker made for Eneba.com, designed to obtain products at lower prices. To make this bot work properly on other websites, you need to customize the `URL` variable and `getPrice()` function.
 
 ```python
 def getPrice():
-    page = requests.get(URL, headers=HEADER) #URL is from eneba.com
+    page = requests.get(URL, headers=HEADER) #URL in this case: eneba.com
     soup = BeautifulSoup(page.content, "html.parser")
 
-    #these two html classes were extracted after inspecting metroid dread shoping page on Eneba
-    #You should adapt your soup.find() query to your specific case.
+    # These two HTML classes were extracted after inspecting the product shopping page on Eneba
+    # You should adapt your soup.find() query to your specific case.
     title = soup.find(class_="pO0YjY").get_text().strip()
     price = soup.find(class_="L5ErLT").get_text().strip()[0:2] 
 	# [...]
     return price
 ```
 
-> :warning: **NOTE:** You also need to change directory route in `priceTrackerInicio.bat` after cd. This bat was made to automate price tracker bot after pc boot.
+> :warning: **NOTE:** You also need to change the directory path in `priceTrackerInicio.bat` after `cd` within its code. This batch file was created to automate the price tracker bot after PC boot.
 
